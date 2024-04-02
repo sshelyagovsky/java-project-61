@@ -2,11 +2,9 @@ plugins {
     id("java")
     application
 }
-
 application {
     mainClass = "hexlet.code.App"
 }
-
 group = "hexlet.code"
 version = "1.0-SNAPSHOT"
 
@@ -19,6 +17,9 @@ dependencies {
     testImplementation("org.junit.jupiter:junit-jupiter")
 }
 
+tasks.getByName("run", JavaExec::class) {
+    standardInput = System.`in`
+}
 tasks.test {
     useJUnitPlatform()
 }
