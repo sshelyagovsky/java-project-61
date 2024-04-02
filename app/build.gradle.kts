@@ -1,7 +1,9 @@
 plugins {
     id("java")
     application
+    checkstyle
 }
+
 application {
     mainClass = "hexlet.code.App"
 }
@@ -15,6 +17,7 @@ repositories {
 dependencies {
     testImplementation(platform("org.junit:junit-bom:5.9.1"))
     testImplementation("org.junit.jupiter:junit-jupiter")
+    implementation("org.apache.commons:commons-lang3:3.14.0")
 }
 
 tasks.getByName("run", JavaExec::class) {
