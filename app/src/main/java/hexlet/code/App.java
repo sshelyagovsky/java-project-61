@@ -9,11 +9,19 @@ public class App {
                 break;
             case 2 :
                 userName = Cli.greeting(1);
-                Even.questionEven(userName, userChoice);
+                Even.gameEven(userName, userChoice);
                 break;
             case 3 :
                 userName = Cli.greeting(1);
-                Calc.calculator(userName, userChoice);
+                Calc.gameCalculator(userName, userChoice);
+                break;
+            case 4 :
+                userName = Cli.greeting(1);
+                Gcd.gameGcd(userName, userChoice);
+                break;
+            case 5 :
+                userName = Cli.greeting(1);
+                Progression.gameProgression(userName, userChoice);
                 break;
             case 0 :
                 break;

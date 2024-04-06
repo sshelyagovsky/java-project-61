@@ -3,12 +3,12 @@ package hexlet.code;
 import java.util.Scanner;
 
 public class Calc {
-    public static void calculator(String userName, int userChoice) {
+    public static void gameCalculator(String userName, int userChoice) {
         int index = 3;
         int cntCorrectAnswers = 0;
         boolean isCorrect = true;
         Scanner scanner = new Scanner(System.in);
-
+        Engine.questionTitle(userChoice);
         while (isCorrect && cntCorrectAnswers < index) {
             int value1 = GenerateRandom.getRandomNumber(100);
             int value2 = GenerateRandom.getRandomNumber(100);
@@ -17,7 +17,6 @@ public class Calc {
 
             int computeAnswer = calculateResult(value1, value2, ranOperation);
 
-            Engine.questionTitle(userChoice);
             Engine.questionMain(value1 + " " + ranOperation + " " + value2);
             Engine.answer();
             var userAnswer = scanner.nextInt();
@@ -25,7 +24,7 @@ public class Calc {
             isCorrect = Engine.checkAnswer(String.valueOf(userAnswer), String.valueOf(computeAnswer));
             cntCorrectAnswers++;
         }
-        Engine.checkCorrectAnswer(cntCorrectAnswers, userName);
+        Engine.checkCorrectAnswer(isCorrect, userName);
     }
     public static int calculateResult(int value1, int value2, String operation) {
         int result = 0;

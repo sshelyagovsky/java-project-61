@@ -16,10 +16,16 @@ public class Engine {
             case 3 :
                 System.out.println("What is the result of the expression?");
                 break;
+            case 4 :
+                System.out.println("Find the greatest common divisor of given numbers.");
+                break;
+            case 5 :
+                System.out.println("What number is missing in the progression?");
+                break;
             case 0 :
                 break;
             default:
-                System.out.println("incorrect choice");
+                System.out.println("Incorrect choice");
         }
     }
     public static void questionMain(String compQuestion) {
@@ -37,10 +43,10 @@ public class Engine {
             return false;
         }
     }
-    public static void checkCorrectAnswer(int cnt, String userName) {
+    public static void checkCorrectAnswer(boolean isCorrect, String userName) {
         String congratText = "Congratulations";
         String tryAgainText = "Let's try again";
-        String text = cnt == 3 ? congratText : tryAgainText;
+        String text = isCorrect ? congratText : tryAgainText;
         System.out.println(text + ", " + userName + "!");
 
     }
