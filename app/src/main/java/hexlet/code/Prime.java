@@ -6,12 +6,14 @@ public class Prime {
         int index = Engine.pickCountRound();
         int cntCorrectAnswers = 0;
         boolean isCorrect = true;
+        int ranLowLimit = 2;
+        int ranUpLimit = 30;
         Scanner scanner = new Scanner(System.in);
 
         Engine.questionTitle(userChoice);
 
         while (isCorrect && cntCorrectAnswers < index) {
-            int generatedNumber = GenerateRandom.getRandomNumber(2, 30);
+            int generatedNumber = GenerateRandom.getRandomNumber(ranLowLimit, ranUpLimit);
             String computeAnswer = isPrimeNumber(generatedNumber) ? "yes" : "no";
 
             Engine.questionMain(String.valueOf(generatedNumber));

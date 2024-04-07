@@ -1,21 +1,23 @@
 package hexlet.code;
 
 import java.util.Scanner;
-
+import static hexlet.code.GenerateRandom.*;
 public class Calc {
     public static void gameCalculator(String userName, int userChoice) {
-        int index = 3;
+        int index = Engine.pickCountRound();
         int cntCorrectAnswers = 0;
+        int ranLowLimit = 1;
+        int ranUpLimit = 30;
         boolean isCorrect = true;
         Scanner scanner = new Scanner(System.in);
 
         Engine.questionTitle(userChoice);
 
         while (isCorrect && cntCorrectAnswers < index) {
-            int value1 = GenerateRandom.getRandomNumber(1, 100);
-            int value2 = GenerateRandom.getRandomNumber(1, 100);
+            int value1 = getRandomNumber(ranLowLimit, ranUpLimit);
+            int value2 = getRandomNumber(ranLowLimit, ranUpLimit);
             String[] operations = {"+", "-", "*"};
-            String ranOperation = GenerateRandom.getRandomMathOperation(operations);
+            String ranOperation = getRandomMathOperation(operations);
 
             int computeAnswer = calculateResult(value1, value2, ranOperation);
 

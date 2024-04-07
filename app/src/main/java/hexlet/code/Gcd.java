@@ -1,19 +1,21 @@
 package hexlet.code;
 
 import java.util.Scanner;
-
+import static hexlet.code.GenerateRandom.*;
 public class Gcd {
     public static void gameGcd(String userName, int userChoice) {
         int index = Engine.pickCountRound();
         int cntCorrectAnswers = 0;
+        int ranLowLimit = 1;
+        int ranUpLimit = 30;
         boolean isCorrect = true;
         Scanner scanner = new Scanner(System.in);
 
         Engine.questionTitle(userChoice);
 
         while (isCorrect && cntCorrectAnswers < index) {
-            int value1 = GenerateRandom.getRandomNumber(1, 30);
-            int value2 = GenerateRandom.getRandomNumber(1, 30);
+            int value1 = getRandomNumber(ranLowLimit, ranUpLimit);
+            int value2 = getRandomNumber(ranLowLimit, ranUpLimit);
             int computeAnswer = gcd(value1, value2);
 
             Engine.questionMain(value1 + " " + value2);
