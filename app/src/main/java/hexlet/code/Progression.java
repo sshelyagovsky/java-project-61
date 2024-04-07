@@ -1,21 +1,22 @@
 package hexlet.code;
 
-import java.util.Arrays;
 import java.util.Scanner;
-
 public class Progression {
 
     public static void gameProgression(String userName, int userChoice) {
         int index = Engine.pickCountRound();
         int cntCorrectAnswers = 0;
-        int lowerLimitRandom = 5;
         boolean isCorrect = true;
         Scanner scanner = new Scanner(System.in);
+
+        Engine.questionTitle(userChoice);
+
         while (isCorrect && cntCorrectAnswers < index) {
-            int lengthProgression = GenerateRandom.getRandomNumberExt(lowerLimitRandom, 10);
-            int startProgression = GenerateRandom.getRandomNumber( 10);
-            int positionProgression = GenerateRandom.getRandomNumberExt(1, lengthProgression);
-            int indexIncProgression = GenerateRandom.getRandomNumberExt(lowerLimitRandom, 10);
+            int lengthProgression = GenerateRandom.getRandomNumber(5, 10);
+            int startProgression = GenerateRandom.getRandomNumber(1, 10);
+            int positionProgression = GenerateRandom.getRandomNumber(1, lengthProgression);
+            int indexIncProgression = GenerateRandom.getRandomNumber(5, 10);
+
             int[] progression = getProgression(lengthProgression, startProgression, indexIncProgression);
             String questionStrProgression = getHideStrProgression(progression, positionProgression);
             int computeAnswer = getHiddenValueProgression(progression, positionProgression);
@@ -27,6 +28,7 @@ public class Progression {
             isCorrect = Engine.checkAnswer(String.valueOf(userAnswer), String.valueOf(computeAnswer));
             cntCorrectAnswers++;
         }
+        Engine.checkCorrectAnswer(isCorrect, userName);
     }
     public static int[] getProgression(int lengthProgression, int startProgression, int indexIncProgression) {
         int[] numbers = new int[lengthProgression];
@@ -48,6 +50,6 @@ public class Progression {
         return hideProgression.toString();
     }
     public static int getHiddenValueProgression(int[] progression, int positionProgression) {
-        return progression[positionProgression -1];
+        return progression[positionProgression - 1];
     }
 }

@@ -8,11 +8,13 @@ public class Calc {
         int cntCorrectAnswers = 0;
         boolean isCorrect = true;
         Scanner scanner = new Scanner(System.in);
+
         Engine.questionTitle(userChoice);
+
         while (isCorrect && cntCorrectAnswers < index) {
-            int value1 = GenerateRandom.getRandomNumber(100);
-            int value2 = GenerateRandom.getRandomNumber(100);
-            String[] operations = {"+", "-", "*", "/"};
+            int value1 = GenerateRandom.getRandomNumber(1, 100);
+            int value2 = GenerateRandom.getRandomNumber(1, 100);
+            String[] operations = {"+", "-", "*"};
             String ranOperation = GenerateRandom.getRandomMathOperation(operations);
 
             int computeAnswer = calculateResult(value1, value2, ranOperation);
@@ -46,6 +48,4 @@ public class Calc {
         }
         return result;
     }
-
-
 }

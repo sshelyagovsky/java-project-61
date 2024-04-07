@@ -22,6 +22,9 @@ public class Engine {
             case 5 :
                 System.out.println("What number is missing in the progression?");
                 break;
+            case 6 :
+                System.out.println("Answer 'yes' if given number is prime. Otherwise answer 'no'.");
+                break;
             case 0 :
                 break;
             default:
@@ -31,9 +34,11 @@ public class Engine {
     public static void questionMain(String compQuestion) {
         System.out.println("Question: " + compQuestion);
     }
+
     public static void answer() {
         System.out.print("Your answer: ");
     }
+
     public static boolean checkAnswer(String userAnswer, String computeAnswer) {
         if (userAnswer.equals(computeAnswer)) {
             System.out.println("Correct!");

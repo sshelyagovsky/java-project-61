@@ -1,9 +1,8 @@
 package hexlet.code;
 
 import java.util.Scanner;
-
-public class Even {
-    public static void gameEven(String userName, int userChoice) {
+public class Prime {
+    public static void gamePrime(String userName, int userChoice) {
         int index = Engine.pickCountRound();
         int cntCorrectAnswers = 0;
         boolean isCorrect = true;
@@ -12,8 +11,8 @@ public class Even {
         Engine.questionTitle(userChoice);
 
         while (isCorrect && cntCorrectAnswers < index) {
-            int generatedNumber = GenerateRandom.getRandomNumber(1, 30);
-            String computeAnswer = isEven(generatedNumber) ? "yes" : "no";
+            int generatedNumber = GenerateRandom.getRandomNumber(2, 30);
+            String computeAnswer = isPrimeNumber(generatedNumber) ? "yes" : "no";
 
             Engine.questionMain(String.valueOf(generatedNumber));
             Engine.answer();
@@ -24,8 +23,16 @@ public class Even {
         }
         Engine.checkCorrectAnswer(isCorrect, userName);
     }
-    public static boolean isEven(int number) {
-        return number % 2 == 0;
+
+    public static boolean isPrimeNumber(int number) {
+        if (number < 2) {
+            return false;
+        }
+        for (int i = 2; i <= number / 2; i++) {
+            if (number % i == 0) {
+                return false;
+            }
+        }
+        return true;
     }
 }
-

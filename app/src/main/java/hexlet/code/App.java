@@ -1,4 +1,5 @@
 package hexlet.code;
+
 public class App {
     public static void main(String[] args) {
         int userChoice = Games.getGames();
@@ -23,10 +24,14 @@ public class App {
                 userName = Cli.greeting(1);
                 Progression.gameProgression(userName, userChoice);
                 break;
+            case 6 :
+                userName = Cli.greeting(1);
+                Prime.gamePrime(userName, userChoice);
+                break;
             case 0 :
                 break;
             default:
-                System.out.println("incorrect choice");
+                System.out.println("Incorrect choice");
         }
     }
 }
