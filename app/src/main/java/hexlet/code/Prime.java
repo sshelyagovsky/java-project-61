@@ -1,6 +1,7 @@
 package hexlet.code;
 
 import java.util.Scanner;
+import static hexlet.code.GenerateRandom.*;
 public class Prime {
     public static void gamePrime(String userName, int userChoice) {
         int index = Engine.pickCountRound();
@@ -13,7 +14,7 @@ public class Prime {
         Engine.questionTitle(userChoice);
 
         while (isCorrect && cntCorrectAnswers < index) {
-            int generatedNumber = GenerateRandom.getRandomNumber(ranLowLimit, ranUpLimit);
+            int generatedNumber = getRandomNumber(ranLowLimit, ranUpLimit);
             String computeAnswer = isPrimeNumber(generatedNumber) ? "yes" : "no";
 
             Engine.questionMain(String.valueOf(generatedNumber));

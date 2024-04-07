@@ -17,7 +17,6 @@ public class Progression {
         int ranUpStartIndx = 10;
         //Progression Position
         int ranLowPosIndex = 0;
-
         //Progression Increment index
         int ranLowIncIndex = 5;
         int ranUpIncIndex = 10;
@@ -29,7 +28,7 @@ public class Progression {
         while (isCorrect && cntCorrectAnswers < index) {
             int length = getRandomNumber(ranLowLimitLength, ranUpLimitLength);
             int startPos = getRandomNumber(ranLowStartIndx, ranUpStartIndx);
-            int position = getRandomNumber(ranLowPosIndex, ranUpLimitLength - 1);
+            int position = getRandomNumber(ranLowPosIndex, length - 1);
             int indexInc = getRandomNumber(ranLowIncIndex, ranUpIncIndex);
 
             int[] progression = getProgression(length, startPos, indexInc);
@@ -55,8 +54,9 @@ public class Progression {
     public static String getHideStrProgression(int[] progression, int position) {
         int lenProgression = progression.length;
         StringBuilder hideProgression = new StringBuilder();
+        int posIndx = position == 0 ? position : position - 1;
         for (int i = 0; i < lenProgression; i++) {
-            if (i == position - 1) {
+            if (i == posIndx) {
                 hideProgression.append(".. ");
             } else {
                 hideProgression.append(progression[i]).append(" ");
@@ -65,6 +65,7 @@ public class Progression {
         return hideProgression.toString();
     }
     public static int getHiddenValueProgression(int[] progression, int position) {
-        return progression[position - 1];
+
+        return position == 0 ? progression[position] : progression[position - 1];
     }
 }
