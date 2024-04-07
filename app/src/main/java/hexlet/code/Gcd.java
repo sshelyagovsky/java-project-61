@@ -1,14 +1,16 @@
 package hexlet.code;
 
 import java.util.Scanner;
-import static hexlet.code.GenerateRandom.*;
+import static hexlet.code.GenerateRandom.getRandomNumber;
 public class Gcd {
+    private static int index = Engine.pickCountRound();
+    private static int cntCorrectAnswers = 0;
+    private static int ranLowLimit = 1;
+    private static int ranUpLimit = 30;
+    private static boolean isCorrect = true;
+
     public static void gameGcd(String userName, int userChoice) {
-        int index = Engine.pickCountRound();
-        int cntCorrectAnswers = 0;
-        int ranLowLimit = 1;
-        int ranUpLimit = 30;
-        boolean isCorrect = true;
+
         Scanner scanner = new Scanner(System.in);
 
         Engine.questionTitle(userChoice);

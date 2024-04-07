@@ -2,24 +2,24 @@ package hexlet.code;
 
 import java.util.Scanner;
 
-import static hexlet.code.GenerateRandom.*;
+import static hexlet.code.GenerateRandom.getRandomNumber;
 public class Progression {
+    private static int index = Engine.pickCountRound();
+    private static int cntCorrectAnswers = 0;
+    private static boolean isCorrect = true;
+    // Progression Length
+    private static int ranLowLimitLength = 5;
+    private static int ranUpLimitLength = 10;
+    //Progression Start
+    private static int ranLowStartIndx = 1;
+    private static int ranUpStartIndx = 10;
+    //Progression Position
+    private static int ranLowPosIndex = 0;
+    //Progression Increment index
+    private static int ranLowIncIndex = 5;
+    private static int ranUpIncIndex = 10;
 
     public static void gameProgression(String userName, int userChoice) {
-        int index = Engine.pickCountRound();
-        int cntCorrectAnswers = 0;
-        boolean isCorrect = true;
-        // Progression Length
-        int ranLowLimitLength = 5;
-        int ranUpLimitLength = 10;
-        //Progression Start
-        int ranLowStartIndx = 1;
-        int ranUpStartIndx = 10;
-        //Progression Position
-        int ranLowPosIndex = 0;
-        //Progression Increment index
-        int ranLowIncIndex = 5;
-        int ranUpIncIndex = 10;
 
         Scanner scanner = new Scanner(System.in);
 

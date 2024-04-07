@@ -1,14 +1,15 @@
 package hexlet.code;
 
 import java.util.Scanner;
-import static hexlet.code.GenerateRandom.*;
+import static hexlet.code.GenerateRandom.getRandomNumber;
 public class Even {
+    private static int index = Engine.pickCountRound();
+    private static int ranLowLimit = 1;
+    private static int ranUpLimit = 30;
+    private static int cntCorrectAnswers = 0;
+    private static boolean isCorrect = true;
     public static void gameEven(String userName, int userChoice) {
-        int index = Engine.pickCountRound();
-        int ranLowLimit = 1;
-        int ranUpLimit = 30;
-        int cntCorrectAnswers = 0;
-        boolean isCorrect = true;
+
         Scanner scanner = new Scanner(System.in);
 
         Engine.questionTitle(userChoice);

@@ -1,14 +1,16 @@
 package hexlet.code;
 
 import java.util.Scanner;
-import static hexlet.code.GenerateRandom.*;
+import static hexlet.code.GenerateRandom.getRandomNumber;
 public class Prime {
+    private static int index = Engine.pickCountRound();
+    private static int cntCorrectAnswers = 0;
+    private static boolean isCorrect = true;
+    private static int ranLowLimit = 2;
+    private static int ranUpLimit = 30;
+
     public static void gamePrime(String userName, int userChoice) {
-        int index = Engine.pickCountRound();
-        int cntCorrectAnswers = 0;
-        boolean isCorrect = true;
-        int ranLowLimit = 2;
-        int ranUpLimit = 30;
+
         Scanner scanner = new Scanner(System.in);
 
         Engine.questionTitle(userChoice);
