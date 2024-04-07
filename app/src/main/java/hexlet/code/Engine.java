@@ -1,28 +1,47 @@
 package hexlet.code;
 
+import java.util.Random;
+import java.util.Scanner;
+
 public class Engine {
+    public static final int GREET_QUEST_NUM = 1;
+    public static final int EVEN_QUEST_NUM = 2;
+    public static final int CALC_QUEST_NUM = 3;
+    public static final int GCD_QUEST_NUM = 4;
+    public static final int PROGRESS_QUEST_NUM = 5;
+    public static final int PRIME_QUEST_NUM = 6;
+
+    public static int getGames() {
+        System.out.println("Please enter the game number and press Enter.");
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("1 - Greet\n2 - Even\n3 - Calc\n4 - GCD\n5 - Progression\n6 - Prime\n0 - Exit");
+        System.out.print("Your choice: ");
+        int number = scanner.nextInt();
+        return number;
+    }
+
     public static int pickCountRound() {
         int round = 3;
         return round;
     }
     public static void questionTitle(int userChoice) {
         switch (userChoice) {
-            case 1 :
+            case GREET_QUEST_NUM :
                 System.out.println("Welcome to the Brain Games!");
                 break;
-            case 2 :
+            case EVEN_QUEST_NUM :
                 System.out.println("Answer 'yes' if the number is even, otherwise answer 'no'.");
                 break;
-            case 3 :
+            case CALC_QUEST_NUM :
                 System.out.println("What is the result of the expression?");
                 break;
-            case 4 :
+            case GCD_QUEST_NUM :
                 System.out.println("Find the greatest common divisor of given numbers.");
                 break;
-            case 5 :
+            case PROGRESS_QUEST_NUM :
                 System.out.println("What number is missing in the progression?");
                 break;
-            case 6 :
+            case PRIME_QUEST_NUM :
                 System.out.println("Answer 'yes' if given number is prime. Otherwise answer 'no'.");
                 break;
             case 0 :
@@ -54,5 +73,15 @@ public class Engine {
         String text = isCorrect ? congratText : tryAgainText;
         System.out.println(text + ", " + userName + "!");
 
+    }
+    public static int getRandomNumber(int lowerLimit, int upperLimit) {
+        // constant: lowerLimit of random numbers
+        // constant: upperLimit of random numbers
+        Random ran = new Random();
+        return ran.nextInt(lowerLimit, upperLimit);
+    }
+    public static String getRandomMathOperation(String[] operations) {
+        int index = getRandomNumber(0, operations.length);
+        return operations[index];
     }
 }

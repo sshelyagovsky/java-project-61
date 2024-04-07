@@ -1,21 +1,24 @@
-package hexlet.code;
+package hexlet.code.games;
 
+import hexlet.code.Engine;
 import java.util.Scanner;
-import static hexlet.code.GenerateRandom.getRandomNumber;
+import static hexlet.code.Engine.getRandomNumber;
+
 public class Even {
-    private static int index = Engine.pickCountRound();
-    private static int ranLowLimit = 1;
-    private static int ranUpLimit = 30;
-    private static int cntCorrectAnswers = 0;
-    private static boolean isCorrect = true;
+    public static final int INDEX = Engine.pickCountRound();
+    public static final int RAN_LOW_LIMIT = 1;
+    public static final int RAN_UP_LIMIT = 30;
+    public static int cntCorrectAnswers = 0;
+    public static boolean isCorrect = true;
+
     public static void gameEven(String userName, int userChoice) {
 
         Scanner scanner = new Scanner(System.in);
 
         Engine.questionTitle(userChoice);
 
-        while (isCorrect && cntCorrectAnswers < index) {
-            int generatedNumber = getRandomNumber(ranLowLimit, ranUpLimit);
+        while (isCorrect && cntCorrectAnswers < INDEX) {
+            int generatedNumber = getRandomNumber(RAN_LOW_LIMIT, RAN_UP_LIMIT);
             String computeAnswer = isEven(generatedNumber) ? "yes" : "no";
 
             Engine.questionMain(String.valueOf(generatedNumber));

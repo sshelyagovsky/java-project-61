@@ -121,10 +121,7 @@
 
         <!-- Checks for imports                              -->
         <!-- See https://checkstyle.org/config_import.html -->
-        <module name="AvoidStarImport">
-            <property name="allowClassImports" value="true"/>
-            <property name="excludes" value="hexlet.code.GenerateRandom"/>
-        </module>
+        <module name="AvoidStarImport"/>
         <module name="IllegalImport"/> <!-- defaults to sun.* packages -->
         <module name="RedundantImport"/>
         <module name="UnusedImports">

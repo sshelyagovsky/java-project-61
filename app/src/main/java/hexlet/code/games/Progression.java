@@ -1,23 +1,24 @@
-package hexlet.code;
+package hexlet.code.games;
 
+import hexlet.code.Engine;
 import java.util.Scanner;
+import static hexlet.code.Engine.getRandomNumber;
 
-import static hexlet.code.GenerateRandom.getRandomNumber;
 public class Progression {
-    private static int index = Engine.pickCountRound();
-    private static int cntCorrectAnswers = 0;
-    private static boolean isCorrect = true;
+    public static final int INDEX = Engine.pickCountRound();
     // Progression Length
-    private static int ranLowLimitLength = 5;
-    private static int ranUpLimitLength = 10;
+    public static final int RAN_LOW_LIMIT_LENGTH = 5;
+    public static final int RAN_UP_LIMIT_LENGTH = 10;
     //Progression Start
-    private static int ranLowStartIndx = 1;
-    private static int ranUpStartIndx = 10;
+    public static final int RAN_LOW_START_INDX = 1;
+    public static final int RAN_UP_START_INDX = 10;
     //Progression Position
-    private static int ranLowPosIndex = 0;
+    public static final int RAN_LOW_POS_INDEX = 0;
     //Progression Increment index
-    private static int ranLowIncIndex = 5;
-    private static int ranUpIncIndex = 10;
+    public static final int RAN_LOW_INC_INDEX = 5;
+    public static final int RAN_UP_INC_INDEX = 10;
+    public static int cntCorrectAnswers = 0;
+    public static boolean isCorrect = true;
 
     public static void gameProgression(String userName, int userChoice) {
 
@@ -25,11 +26,11 @@ public class Progression {
 
         Engine.questionTitle(userChoice);
 
-        while (isCorrect && cntCorrectAnswers < index) {
-            int length = getRandomNumber(ranLowLimitLength, ranUpLimitLength);
-            int startPos = getRandomNumber(ranLowStartIndx, ranUpStartIndx);
-            int position = getRandomNumber(ranLowPosIndex, length - 1);
-            int indexInc = getRandomNumber(ranLowIncIndex, ranUpIncIndex);
+        while (isCorrect && cntCorrectAnswers < INDEX) {
+            int length = getRandomNumber(RAN_LOW_LIMIT_LENGTH, RAN_UP_LIMIT_LENGTH);
+            int startPos = getRandomNumber(RAN_LOW_START_INDX, RAN_UP_START_INDX);
+            int position = getRandomNumber(RAN_LOW_POS_INDEX, length - 1);
+            int indexInc = getRandomNumber(RAN_LOW_INC_INDEX, RAN_UP_INC_INDEX);
 
             int[] progression = getProgression(length, startPos, indexInc);
             String questionStrProgression = getHideStrProgression(progression, position);

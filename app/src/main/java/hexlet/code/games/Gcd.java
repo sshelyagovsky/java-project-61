@@ -1,13 +1,15 @@
-package hexlet.code;
+package hexlet.code.games;
 
+import hexlet.code.Engine;
 import java.util.Scanner;
-import static hexlet.code.GenerateRandom.getRandomNumber;
+import static hexlet.code.Engine.getRandomNumber;
+
 public class Gcd {
-    private static int index = Engine.pickCountRound();
-    private static int cntCorrectAnswers = 0;
-    private static int ranLowLimit = 1;
-    private static int ranUpLimit = 30;
-    private static boolean isCorrect = true;
+    public static final int INDEX = Engine.pickCountRound();
+    public static final int RAN_LOW_LIMIT = 1;
+    public static final int RAN_UP_LIMIT = 30;
+    public static int cntCorrectAnswers = 0;
+    public static boolean isCorrect = true;
 
     public static void gameGcd(String userName, int userChoice) {
 
@@ -15,9 +17,9 @@ public class Gcd {
 
         Engine.questionTitle(userChoice);
 
-        while (isCorrect && cntCorrectAnswers < index) {
-            int value1 = getRandomNumber(ranLowLimit, ranUpLimit);
-            int value2 = getRandomNumber(ranLowLimit, ranUpLimit);
+        while (isCorrect && cntCorrectAnswers < INDEX) {
+            int value1 = getRandomNumber(RAN_LOW_LIMIT, RAN_UP_LIMIT);
+            int value2 = getRandomNumber(RAN_LOW_LIMIT, RAN_UP_LIMIT);
             int computeAnswer = gcd(value1, value2);
 
             Engine.questionMain(value1 + " " + value2);
