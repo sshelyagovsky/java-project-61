@@ -9,10 +9,16 @@ public class Progression {
         int index = Engine.pickCountRound();
         int cntCorrectAnswers = 0;
         boolean isCorrect = true;
+        // Progression Length
         int ranLowLimitLength = 5;
         int ranUpLimitLength = 10;
+        //Progression Start
         int ranLowStartIndx = 1;
-        int ranUpStartIndx = 30;
+        int ranUpStartIndx = 10;
+        //Progression Position
+        int ranLowPosIndex = 0;
+
+        //Progression Increment index
         int ranLowIncIndex = 5;
         int ranUpIncIndex = 10;
 
@@ -21,14 +27,14 @@ public class Progression {
         Engine.questionTitle(userChoice);
 
         while (isCorrect && cntCorrectAnswers < index) {
-            int lengthProgression = getRandomNumber(ranLowLimitLength, ranUpLimitLength);
-            int startProgression = getRandomNumber(ranLowStartIndx, ranUpStartIndx);
-            int positionProgression = getRandomNumber(ranLowLimitLength, ranUpLimitLength);
-            int indexIncProgression = getRandomNumber(ranLowIncIndex, ranUpIncIndex);
+            int length = getRandomNumber(ranLowLimitLength, ranUpLimitLength);
+            int startPos = getRandomNumber(ranLowStartIndx, ranUpStartIndx);
+            int position = getRandomNumber(ranLowPosIndex, ranUpLimitLength - 1);
+            int indexInc = getRandomNumber(ranLowIncIndex, ranUpIncIndex);
 
-            int[] progression = getProgression(lengthProgression, startProgression, indexIncProgression);
-            String questionStrProgression = getHideStrProgression(progression, positionProgression);
-            int computeAnswer = getHiddenValueProgression(progression, positionProgression);
+            int[] progression = getProgression(length, startPos, indexInc);
+            String questionStrProgression = getHideStrProgression(progression, position);
+            int computeAnswer = getHiddenValueProgression(progression, position);
 
             Engine.questionMain(questionStrProgression);
             Engine.answer();
@@ -39,18 +45,18 @@ public class Progression {
         }
         Engine.checkCorrectAnswer(isCorrect, userName);
     }
-    public static int[] getProgression(int lengthProgression, int startProgression, int indexIncProgression) {
+    public static int[] getProgression(int lengthProgression, int startProgression, int indexInc) {
         int[] numbers = new int[lengthProgression];
         for (int i = 0; i < lengthProgression; i++) {
-            numbers[i] = (i == 0) ? startProgression : numbers[i - 1] + indexIncProgression;
+            numbers[i] = (i == 0) ? startProgression : numbers[i - 1] + indexInc;
         }
         return numbers;
     }
-    public static String getHideStrProgression(int[] progression, int positionProgression) {
+    public static String getHideStrProgression(int[] progression, int position) {
         int lenProgression = progression.length;
         StringBuilder hideProgression = new StringBuilder();
         for (int i = 0; i < lenProgression; i++) {
-            if (i == positionProgression - 1) {
+            if (i == position - 1) {
                 hideProgression.append(".. ");
             } else {
                 hideProgression.append(progression[i]).append(" ");
@@ -58,7 +64,7 @@ public class Progression {
         }
         return hideProgression.toString();
     }
-    public static int getHiddenValueProgression(int[] progression, int positionProgression) {
-        return progression[positionProgression - 1];
+    public static int getHiddenValueProgression(int[] progression, int position) {
+        return progression[position - 1];
     }
 }
