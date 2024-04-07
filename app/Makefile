@@ -1,8 +1,8 @@
 run-build:
-	./gradlew clean build
+	./gradlew clean instalDist
 
 run-dist:
-	./build/install/java-package/bin/java-package
+	./build/install/app/bin/app
 
 run-checkstyle:
 	./gradlew checkstyleMain

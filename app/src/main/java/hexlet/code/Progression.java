@@ -12,7 +12,7 @@ public class Progression {
         int ranLowLimitLength = 5;
         int ranUpLimitLength = 10;
         int ranLowStartIndx = 1;
-        int ranUpStartIndx = 10;
+        int ranUpStartIndx = 30;
         int ranLowIncIndex = 5;
         int ranUpIncIndex = 10;
 
