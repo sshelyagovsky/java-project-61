@@ -5,11 +5,11 @@ import java.util.Scanner;
 import static hexlet.code.Engine.getRandomNumber;
 
 public class Prime {
-    public static final int  INDEX = Engine.pickCountRound();
-    public static final int RAN_LOW_LIMIT = 2;
-    public static final int RAN_UP_LIMIT = 30;
-    public static boolean isCorrect = true;
-    public static int cntCorrectAnswers = 0;
+    private static final int  COUNT_ROUND = Engine.pickCountRound();
+    private static final int RAN_LOW_LIMIT = 2;
+    private static final int RAN_UP_LIMIT = 30;
+    private static boolean isCorrect = true;
+    private static int cntCorrectAnswers = 0;
 
     public static void gamePrime(String userName, int userChoice) {
 
@@ -17,7 +17,7 @@ public class Prime {
 
         Engine.questionTitle(userChoice);
 
-        while (isCorrect && cntCorrectAnswers < INDEX) {
+        while (isCorrect && cntCorrectAnswers < COUNT_ROUND) {
             int generatedNumber = getRandomNumber(RAN_LOW_LIMIT, RAN_UP_LIMIT);
             String computeAnswer = isPrimeNumber(generatedNumber) ? "yes" : "no";
 

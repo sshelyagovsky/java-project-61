@@ -4,12 +4,14 @@ import java.util.Random;
 import java.util.Scanner;
 
 public class Engine {
-    public static final int GREET_QUEST_NUM = 1;
-    public static final int EVEN_QUEST_NUM = 2;
-    public static final int CALC_QUEST_NUM = 3;
-    public static final int GCD_QUEST_NUM = 4;
-    public static final int PROGRESS_QUEST_NUM = 5;
-    public static final int PRIME_QUEST_NUM = 6;
+    private static final int GREET_QUEST_NUM = 1;
+    private static final int EVEN_QUEST_NUM = 2;
+    private static final int CALC_QUEST_NUM = 3;
+    private static final int GCD_QUEST_NUM = 4;
+    private static final int PROGRESS_QUEST_NUM = 5;
+    private static final int PRIME_QUEST_NUM = 6;
+    private static final int COUNT_ROUND = 3;
+
 
     public static int getGames() {
         System.out.println("Please enter the game number and press Enter.");
@@ -21,7 +23,7 @@ public class Engine {
     }
 
     public static int pickCountRound() {
-        int round = 3;
+        int round = COUNT_ROUND;
         return round;
     }
     public static void questionTitle(int userChoice) {
