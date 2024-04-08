@@ -1,3 +1,4 @@
+[![Actions Status](https://github.com/sshelyagovsky/java-project-61/actions/workflows/hexlet-check.yml/badge.svg)](https://github.com/sshelyagovsky/java-project-61/actions)
 [![Maintainability](https://api.codeclimate.com/v1/badges/9731497f1d7d96df266e/maintainability)](https://codeclimate.com/github/sshelyagovsky/java-project-61/maintainability)
 ![Java CI](https://github.com/hexlet-boilerplates/java-package/workflows/Java%20CI/badge.svg)
 # Название проекта
