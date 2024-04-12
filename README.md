@@ -43,18 +43,17 @@
 ## Записи demo
 
 #### DEMO 1
-asciinema url: [html url demo1](https://asciinema.org/a/h6NerXMHqMN0HqNxK3Fkxp9Og)
+[![asciicast](https://asciinema.org/a/h6NerXMHqMN0HqNxK3Fkxp9Og.svg)](https://asciinema.org/a/h6NerXMHqMN0HqNxK3Fkxp9Og)
 #### DEMO 2
-asciinema url: [html url demo2](https://asciinema.org/a/n2azCx8PMujDi7nbDY023LP6a)
+[![asciicast](https://asciinema.org/a/h6NerXMHqMN0HqNxK3Fkxp9Og.svg)](https://asciinema.org/a/h6NerXMHqMN0HqNxK3Fkxp9Og)
 #### DEMO 3
-asciinema url: [html url demo3](https://asciinema.org/a/Ym4Eyej7iPCtT8jJPD4YqNTE6)
+[![asciicast](https://asciinema.org/a/Ym4Eyej7iPCtT8jJPD4YqNTE6.svg)](https://asciinema.org/a/Ym4Eyej7iPCtT8jJPD4YqNTE6)
 #### DEMO 4
-asciinema url: [html url demo4](https://asciinema.org/a/BOrbGz7d3YYoMkCbHMGwlH7ZD)
+[![asciicast](https://asciinema.org/a/BOrbGz7d3YYoMkCbHMGwlH7ZD.svg)](https://asciinema.org/a/BOrbGz7d3YYoMkCbHMGwlH7ZD)
 #### DEMO 5
-asciinema url: [html url demo5](https://asciinema.org/a/6nLlIqg689oSXltwylXVqc8uN)
+[![asciicast](https://asciinema.org/a/6nLlIqg689oSXltwylXVqc8uN.svg)](https://asciinema.org/a/6nLlIqg689oSXltwylXVqc8uN)
 #### DEMO 6
-asciinema url: [html url demo6](https://asciinema.org/a/bC0EiIOVQkpts0CCxnUZhDzRg)
-
+[![asciicast](https://asciinema.org/a/bC0EiIOVQkpts0CCxnUZhDzRg.svg)](https://asciinema.org/a/bC0EiIOVQkpts0CCxnUZhDzRg)
 
 ## Технологии
 - [java](https://dev.java/learn/)
