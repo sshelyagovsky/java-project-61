@@ -13,7 +13,7 @@ public class Gcd {
     public static void start() {
         String[][] gameParam = new String[COUNT_ROUND][CNT_GAME_PARAM];
 
-        for (var i = 0; i < COUNT_ROUND; i ++) {
+        for (var i = 0; i < COUNT_ROUND; i++) {
             int value1 = getRandomNumber(RAN_LOW_LIMIT, RAN_UP_LIMIT);
             int value2 = getRandomNumber(RAN_LOW_LIMIT, RAN_UP_LIMIT);
 
@@ -28,6 +28,7 @@ public class Gcd {
         //transfer game param to Engine
         Engine.startGame(DESCRIPTION, gameParam);
     }
+
     public static int gcd(int a, int b) {
         return (a % b == 0) ? Math.abs(b) : gcd(b, a % b);
     }

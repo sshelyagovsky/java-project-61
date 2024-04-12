@@ -1,6 +1,5 @@
 package hexlet.code;
 
-import java.util.Random;
 import java.util.Scanner;
 
 public class Engine {
@@ -31,7 +30,9 @@ public class Engine {
                 System.out.println("Correct!");
             } else {
                 isCorrect = false;
-                System.out.println("'" + userAnswer + "' is wrong answer ;(. Correct answer was '" + computerAnswer + "'");
+                System.out.println("'" + userAnswer
+                        + "' is wrong answer ;(. Correct answer was '"
+                        + computerAnswer + "'");
             }
         }
         String text = isCorrect ? "Congratulations" : "Let's try again";

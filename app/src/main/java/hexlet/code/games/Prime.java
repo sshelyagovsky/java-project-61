@@ -14,7 +14,7 @@ public class Prime {
 
         String[][] gameParam = new String[COUNT_ROUND][CNT_GAME_PARAM];
 
-        for (var i = 0; i < COUNT_ROUND; i ++) {
+        for (var i = 0; i < COUNT_ROUND; i++) {
             int generatedNumber = getRandomNumber(RAN_LOW_LIMIT, RAN_UP_LIMIT);
 
             //game params

@@ -26,7 +26,7 @@ public class Progression {
     public static void start() {
         String[][] gameParam = new String[COUNT_ROUND][CNT_GAME_PARAM];
 
-        for (var i = 0; i < COUNT_ROUND; i ++) {
+        for (var i = 0; i < COUNT_ROUND; i++) {
             int length = getRandomNumber(RAN_LOW_LIMIT_LENGTH, RAN_UP_LIMIT_LENGTH);
             int startPos = getRandomNumber(RAN_LOW_START_INDEX, RAN_UP_START_INDEX);
             int position = getRandomNumber(RAN_LOW_POS_INDEX, length - 1);

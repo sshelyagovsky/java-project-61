@@ -13,7 +13,7 @@ public class Calc {
     public static void start() {
         String[][] gameParam = new String[COUNT_ROUND][CNT_GAME_PARAM];
 
-        for (var i = 0; i < COUNT_ROUND; i ++) {
+        for (var i = 0; i < COUNT_ROUND; i++) {
             int value1 = getRandomNumber(RAN_LOW_LIMIT, RAN_UP_LIMIT);
             int value2 = getRandomNumber(RAN_LOW_LIMIT, RAN_UP_LIMIT);
             String[] operations = {"+", "-", "*"};
