@@ -1,40 +1,36 @@
 package hexlet.code.games;
 
 import hexlet.code.Engine;
-import java.util.Scanner;
-import static hexlet.code.Engine.getRandomNumber;
-import static hexlet.code.Engine.getRandomMathOperation;
-
+import static hexlet.code.Utils.getRandomMathOperation;
+import static hexlet.code.Utils.getRandomNumber;
 public class Calc {
-    private  static final int COUNT_ROUND = Engine.pickCountRound();
+    private  static final int COUNT_ROUND = 3;
+    private static final int CNT_GAME_PARAM = 2;
     private static final int RAN_LOW_LIMIT = 1;
     private static final int RAN_UP_LIMIT = 30;
-    private static boolean isCorrect = true;
-    private static int cntCorrectAnswers = 0;
+    private static final String DESCRIPTION = "What is the result of the expression?";
 
-    public static void gameCalculator(String userName, int userChoice) {
+    public static void start() {
+        String[][] gameParam = new String[COUNT_ROUND][CNT_GAME_PARAM];
 
-        Scanner scanner = new Scanner(System.in);
-
-        Engine.questionTitle(userChoice);
-
-        while (isCorrect && cntCorrectAnswers < COUNT_ROUND) {
+        for (var i = 0; i < COUNT_ROUND; i ++) {
             int value1 = getRandomNumber(RAN_LOW_LIMIT, RAN_UP_LIMIT);
             int value2 = getRandomNumber(RAN_LOW_LIMIT, RAN_UP_LIMIT);
             String[] operations = {"+", "-", "*"};
             String ranOperation = getRandomMathOperation(operations);
 
-            int computeAnswer = calculateResult(value1, value2, ranOperation);
+            //game params
+            String computerQuestion = value1 + " " + ranOperation + " " + value2;
+            int computerAnswer = calculateResult(value1, value2, ranOperation);
 
-            Engine.questionMain(value1 + " " + ranOperation + " " + value2);
-            Engine.answer();
-            var userAnswer = scanner.nextInt();
-
-            isCorrect = Engine.checkAnswer(String.valueOf(userAnswer), String.valueOf(computeAnswer));
-            cntCorrectAnswers++;
+            // set game params
+            gameParam[i][0] = computerQuestion;
+            gameParam[i][1] = String.valueOf(computerAnswer);
         }
-        Engine.checkCorrectAnswer(isCorrect, userName);
+        //transfer game param to Engine
+        Engine.startGame(DESCRIPTION, gameParam);
     }
+
     public static int calculateResult(int value1, int value2, String operation) {
         int result = 0;
         switch (operation) {
@@ -47,11 +43,8 @@ public class Calc {
             case "*" :
                 result = value1 * value2;
                 break;
-            case "/" :
-                result = value1 / value2;
-                break;
             default:
-                result = 0;
+                throw new IllegalStateException("Illegal math operation input");
         }
         return result;
     }

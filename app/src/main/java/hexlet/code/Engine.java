@@ -4,86 +4,37 @@ import java.util.Random;
 import java.util.Scanner;
 
 public class Engine {
-    private static final int GREET_QUEST_NUM = 1;
-    private static final int EVEN_QUEST_NUM = 2;
-    private static final int CALC_QUEST_NUM = 3;
-    private static final int GCD_QUEST_NUM = 4;
-    private static final int PROGRESS_QUEST_NUM = 5;
-    private static final int PRIME_QUEST_NUM = 6;
     private static final int COUNT_ROUND = 3;
+    private static boolean isCorrect = true;
 
-
-    public static int getGames() {
-        System.out.println("Please enter the game number and press Enter.");
+    public static void startGame(String description, String[][] gameParam) {
         Scanner scanner = new Scanner(System.in);
-        System.out.println("1 - Greet\n2 - Even\n3 - Calc\n4 - GCD\n5 - Progression\n6 - Prime\n0 - Exit");
-        System.out.print("Your choice: ");
-        int number = scanner.nextInt();
-        return number;
-    }
+        System.out.print("Welcome to the Brain Games!\n" +
+                "May I have your name? ");
+        String userName = scanner.nextLine();
+        System.out.println("Hello, " + userName + "!");
+        System.out.println(description);
 
-    public static int pickCountRound() {
-        int round = COUNT_ROUND;
-        return round;
-    }
-    public static void questionTitle(int userChoice) {
-        switch (userChoice) {
-            case GREET_QUEST_NUM :
-                System.out.println("Welcome to the Brain Games!");
-                break;
-            case EVEN_QUEST_NUM :
-                System.out.println("Answer 'yes' if the number is even, otherwise answer 'no'.");
-                break;
-            case CALC_QUEST_NUM :
-                System.out.println("What is the result of the expression?");
-                break;
-            case GCD_QUEST_NUM :
-                System.out.println("Find the greatest common divisor of given numbers.");
-                break;
-            case PROGRESS_QUEST_NUM :
-                System.out.println("What number is missing in the progression?");
-                break;
-            case PRIME_QUEST_NUM :
-                System.out.println("Answer 'yes' if given number is prime. Otherwise answer 'no'.");
-                break;
-            case 0 :
-                break;
-            default:
-                System.out.println("Incorrect choice");
+        for (var i = 0; i < COUNT_ROUND && isCorrect; i++) {
+            //get game param
+            var computerQuestion = gameParam[i][0];
+            var computerAnswer = gameParam[i][1];
+
+            //question
+            System.out.println("Question: " + computerQuestion);
+            System.out.print("Your answer: ");
+            var userAnswer = scanner.nextLine();
+
+            // check answer
+            if (userAnswer.equals(computerAnswer)) {
+                isCorrect = true;
+                System.out.println("Correct!");
+            } else {
+                isCorrect = false;
+                System.out.println("'" + userAnswer + "' is wrong answer ;(. Correct answer was '" + computerAnswer + "'");
+            }
         }
-    }
-    public static void questionMain(String compQuestion) {
-        System.out.println("Question: " + compQuestion);
-    }
-
-    public static void answer() {
-        System.out.print("Your answer: ");
-    }
-
-    public static boolean checkAnswer(String userAnswer, String computeAnswer) {
-        if (userAnswer.equals(computeAnswer)) {
-            System.out.println("Correct!");
-            return true;
-        } else {
-            System.out.println("'" + userAnswer + "' is wrong answer ;(. Correct answer was '" + computeAnswer + "'");
-            return false;
-        }
-    }
-    public static void checkCorrectAnswer(boolean isCorrect, String userName) {
-        String congratText = "Congratulations";
-        String tryAgainText = "Let's try again";
-        String text = isCorrect ? congratText : tryAgainText;
+        String text = isCorrect ? "Congratulations" : "Let's try again";
         System.out.println(text + ", " + userName + "!");
-
-    }
-    public static int getRandomNumber(int lowerLimit, int upperLimit) {
-        // constant: lowerLimit of random numbers
-        // constant: upperLimit of random numbers
-        Random ran = new Random();
-        return ran.nextInt(lowerLimit, upperLimit);
-    }
-    public static String getRandomMathOperation(String[] operations) {
-        int index = getRandomNumber(0, operations.length);
-        return operations[index];
     }
 }

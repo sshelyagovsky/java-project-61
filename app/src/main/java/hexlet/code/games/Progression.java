@@ -1,49 +1,49 @@
 package hexlet.code.games;
 
 import hexlet.code.Engine;
-import java.util.Scanner;
-import static hexlet.code.Engine.getRandomNumber;
+import static hexlet.code.Utils.getRandomNumber;
 
 public class Progression {
-    private static final int COUNT_ROUND = Engine.pickCountRound();
+    private static final int COUNT_ROUND = 3;
+    private static final int CNT_GAME_PARAM = 2;
+
     // Progression Length
     private static final int RAN_LOW_LIMIT_LENGTH = 5;
     private static final int RAN_UP_LIMIT_LENGTH = 10;
+
     //Progression Start
-    private static final int RAN_LOW_START_INDX = 1;
-    private static final int RAN_UP_START_INDX = 10;
+    private static final int RAN_LOW_START_INDEX = 1;
+    private static final int RAN_UP_START_INDEX = 10;
+
     //Progression Position
     private static final int RAN_LOW_POS_INDEX = 0;
+
     //Progression Increment index
     private static final int RAN_LOW_INC_INDEX = 5;
     private static final int RAN_UP_INC_INDEX = 10;
-    private static int cntCorrectAnswers = 0;
-    private static boolean isCorrect = true;
+    private static final String DESCRIPTION = "What number is missing in the progression?";
 
-    public static void gameProgression(String userName, int userChoice) {
+    public static void start() {
+        String[][] gameParam = new String[COUNT_ROUND][CNT_GAME_PARAM];
 
-        Scanner scanner = new Scanner(System.in);
-
-        Engine.questionTitle(userChoice);
-
-        while (isCorrect && cntCorrectAnswers < COUNT_ROUND) {
+        for (var i = 0; i < COUNT_ROUND; i ++) {
             int length = getRandomNumber(RAN_LOW_LIMIT_LENGTH, RAN_UP_LIMIT_LENGTH);
-            int startPos = getRandomNumber(RAN_LOW_START_INDX, RAN_UP_START_INDX);
+            int startPos = getRandomNumber(RAN_LOW_START_INDEX, RAN_UP_START_INDEX);
             int position = getRandomNumber(RAN_LOW_POS_INDEX, length - 1);
             int indexInc = getRandomNumber(RAN_LOW_INC_INDEX, RAN_UP_INC_INDEX);
 
             int[] progression = getProgression(length, startPos, indexInc);
-            String questionStrProgression = getHideStrProgression(progression, position);
-            int computeAnswer = getHiddenValueProgression(progression, position);
 
-            Engine.questionMain(questionStrProgression);
-            Engine.answer();
+            //game params
+            String computerQuestion = getHideStrProgression(progression, position);
+            int computerAnswer = getHiddenValueProgression(progression, position);
 
-            String userAnswer = scanner.nextLine();
-            isCorrect = Engine.checkAnswer(String.valueOf(userAnswer), String.valueOf(computeAnswer));
-            cntCorrectAnswers++;
+            // set game params
+            gameParam[i][0] = computerQuestion;
+            gameParam[i][1] = String.valueOf(computerAnswer);
         }
-        Engine.checkCorrectAnswer(isCorrect, userName);
+        //transfer game param to Engine
+        Engine.startGame(DESCRIPTION, gameParam);
     }
     public static int[] getProgression(int lengthProgression, int startProgression, int indexInc) {
         int[] numbers = new int[lengthProgression];
@@ -55,9 +55,9 @@ public class Progression {
     public static String getHideStrProgression(int[] progression, int position) {
         int lenProgression = progression.length;
         StringBuilder hideProgression = new StringBuilder();
-        int posIndx = position == 0 ? position : position - 1;
+        int poseIndex = position == 0 ? position : position - 1;
         for (int i = 0; i < lenProgression; i++) {
-            if (i == posIndx) {
+            if (i == poseIndex) {
                 hideProgression.append(".. ");
             } else {
                 hideProgression.append(progression[i]).append(" ");

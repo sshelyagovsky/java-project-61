@@ -1,11 +1,11 @@
 package hexlet.code;
 
-import hexlet.code.games.Cli;
 import hexlet.code.games.Even;
 import hexlet.code.games.Calc;
 import hexlet.code.games.Gcd;
 import hexlet.code.games.Progression;
 import hexlet.code.games.Prime;
+import java.util.Scanner;
 
 public class App {
     private static final int GREET_NUM = 1;
@@ -17,31 +17,37 @@ public class App {
     private static final int EXIT_NUM = 0;
 
     public static void main(String[] args) {
-        int userChoice = Engine.getGames();
-        String userName = "";
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("Please enter the game number and press Enter.\n"
+                + "1 - Greet\n"
+                + "2 - Even\n"
+                + "3 - Calc\n"
+                + "4 - GCD\n"
+                + "5 - Progression\n"
+                + "6 - Prime\n"
+                + "0 - Exit\n"
+                + "Your choice: ");
+        int userChoice = scanner.nextInt();
+        System.out.println();
+
         switch (userChoice) {
             case GREET_NUM :
-                Cli.greeting(userChoice);
+                Cli.greeting();
                 break;
             case EVEN_NUM :
-                userName = Cli.greeting(GREET_NUM);
-                Even.gameEven(userName, userChoice);
+                Even.start();
                 break;
             case CALC_NUM :
-                userName = Cli.greeting(GREET_NUM);
-                Calc.gameCalculator(userName, userChoice);
+                Calc.start();
                 break;
             case GCD_NUM :
-                userName = Cli.greeting(GREET_NUM);
-                Gcd.gameGcd(userName, userChoice);
+                Gcd.start();
                 break;
             case PROGRESS_NUM :
-                userName = Cli.greeting(GREET_NUM);
-                Progression.gameProgression(userName, userChoice);
+                Progression.start();
                 break;
             case PRIME_NUM :
-                userName = Cli.greeting(GREET_NUM);
-                Prime.gamePrime(userName, userChoice);
+                Prime.start();
                 break;
             case EXIT_NUM :
                 break;

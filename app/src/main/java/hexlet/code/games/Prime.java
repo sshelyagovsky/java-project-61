@@ -1,41 +1,39 @@
 package hexlet.code.games;
 
 import hexlet.code.Engine;
-import java.util.Scanner;
-import static hexlet.code.Engine.getRandomNumber;
+import static hexlet.code.Utils.getRandomNumber;
 
 public class Prime {
-    private static final int  COUNT_ROUND = Engine.pickCountRound();
+    private static final int  COUNT_ROUND = 3;
+    private static final int CNT_GAME_PARAM = 2;
     private static final int RAN_LOW_LIMIT = 2;
     private static final int RAN_UP_LIMIT = 30;
-    private static boolean isCorrect = true;
-    private static int cntCorrectAnswers = 0;
+    private static final String DESCRIPTION = "Answer 'yes' if given number is prime. Otherwise answer 'no'.";
 
-    public static void gamePrime(String userName, int userChoice) {
+    public static void start() {
 
-        Scanner scanner = new Scanner(System.in);
+        String[][] gameParam = new String[COUNT_ROUND][CNT_GAME_PARAM];
 
-        Engine.questionTitle(userChoice);
-
-        while (isCorrect && cntCorrectAnswers < COUNT_ROUND) {
+        for (var i = 0; i < COUNT_ROUND; i ++) {
             int generatedNumber = getRandomNumber(RAN_LOW_LIMIT, RAN_UP_LIMIT);
-            String computeAnswer = isPrimeNumber(generatedNumber) ? "yes" : "no";
 
-            Engine.questionMain(String.valueOf(generatedNumber));
-            Engine.answer();
+            //game params
+            String computerQuestion = String.valueOf(generatedNumber);
+            String computerAnswer = isPrimeNumber(generatedNumber) ? "yes" : "no";
 
-            String userAnswer = scanner.nextLine();
-            isCorrect = Engine.checkAnswer(userAnswer, computeAnswer);
-            cntCorrectAnswers++;
+            //set game param
+            gameParam[i][0] = computerQuestion;
+            gameParam[i][1] = computerAnswer;
         }
-        Engine.checkCorrectAnswer(isCorrect, userName);
+        //transfer game param to Engine
+        Engine.startGame(DESCRIPTION, gameParam);
     }
 
     public static boolean isPrimeNumber(int number) {
         if (number < 2) {
             return false;
         }
-        for (int i = 2; i <= number / 2; i++) {
+        for (int i = 2; i <= Math.sqrt(number); i++) {
             if (number % i == 0) {
                 return false;
             }
