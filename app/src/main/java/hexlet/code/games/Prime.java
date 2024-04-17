@@ -17,15 +17,12 @@ public class Prime {
         for (var i = 0; i < COUNT_ROUND; i++) {
             int generatedNumber = getRandomNumber(RAN_LOW_LIMIT, RAN_UP_LIMIT);
 
-            //game params
             String computerQuestion = String.valueOf(generatedNumber);
             String computerAnswer = isPrimeNumber(generatedNumber) ? "yes" : "no";
 
-            //set game param
             gameParam[i][0] = computerQuestion;
             gameParam[i][1] = computerAnswer;
         }
-        //transfer game param to Engine
         Engine.startGame(DESCRIPTION, gameParam);
     }
 

@@ -17,15 +17,12 @@ public class Gcd {
             int value1 = getRandomNumber(RAN_LOW_LIMIT, RAN_UP_LIMIT);
             int value2 = getRandomNumber(RAN_LOW_LIMIT, RAN_UP_LIMIT);
 
-            //game params
             String computerQuestion = value1 + " " + value2;
             int computerAnswer = gcd(value1, value2);
 
-            // set game params
             gameParam[i][0] = computerQuestion;
             gameParam[i][1] = String.valueOf(computerAnswer);
         }
-        //transfer game param to Engine
         Engine.startGame(DESCRIPTION, gameParam);
     }
 

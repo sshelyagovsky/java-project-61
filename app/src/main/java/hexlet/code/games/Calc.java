@@ -19,15 +19,12 @@ public class Calc {
             String[] operations = {"+", "-", "*"};
             String ranOperation = getRandomMathOperation(operations);
 
-            //game params
             String computerQuestion = value1 + " " + ranOperation + " " + value2;
             int computerAnswer = calculateResult(value1, value2, ranOperation);
 
-            // set game params
             gameParam[i][0] = computerQuestion;
             gameParam[i][1] = String.valueOf(computerAnswer);
         }
-        //transfer game param to Engine
         Engine.startGame(DESCRIPTION, gameParam);
     }
 

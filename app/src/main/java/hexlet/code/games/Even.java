@@ -15,15 +15,12 @@ public class Even {
         String[][] gameParam = new String[COUNT_ROUND][CNT_GAME_PARAM];
 
         for (var i = 0; i < COUNT_ROUND; i++) {
-            //game params
             var computerQuestion = getRandomNumber(RAN_LOW_LIMIT, RAN_UP_LIMIT);
             var computerAnswer = isEven(computerQuestion) ? "yes" : "no";
 
-            //set game param
             gameParam[i][0] = String.valueOf(computerQuestion);
             gameParam[i][1] = computerAnswer;
         }
-        //transfer game param to Engine
         Engine.startGame(DESCRIPTION, gameParam);
     }
 
