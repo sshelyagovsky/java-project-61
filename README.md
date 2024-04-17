@@ -2,8 +2,7 @@
 [![Actions Status](https://github.com/sshelyagovsky/java-project-61/actions/workflows/hexlet-check.yml/badge.svg)](https://github.com/sshelyagovsky/java-project-61/actions)
 [![Maintainability](https://api.codeclimate.com/v1/badges/9731497f1d7d96df266e/maintainability)](https://codeclimate.com/github/sshelyagovsky/java-project-61/maintainability)
 ![Java CI](https://github.com/hexlet-boilerplates/java-package/workflows/Java%20CI/badge.svg)
-# Название проекта
-Игра "Welcome to the Brain Games!
+# Название проекта "Игры разума"
 - Пользователь выбирает номер игры и пытается ответить на поставленный вопрос.
 - Пользователь должен ответить правильно на 3 вопроса игры.
 - Пользователю дается только одна попытка ответить правильно.
@@ -90,7 +89,8 @@ make run-checkstyle
 
 ## To do
 - [x] Добавить крутое README
-- [ ] Refactoring по итогу комментариев от наставника
+- [x] Refactoring по итогу комментариев от наставника (Проверка 1)
+- [] Refactoring по итогу комментариев от наставника (Проверка 2)
 
 ## Команда проекта
 <b>Разработчик</b>: Шеляговский Сергей</br>
