@@ -4,7 +4,7 @@ import hexlet.code.Engine;
 import static hexlet.code.Utils.getRandomMathOperation;
 import static hexlet.code.Utils.getRandomNumber;
 public class Calc {
-    private  static final int COUNT_ROUND = 3;
+    private static final int COUNT_ROUND = Engine.getCountRound();
     private static final int CNT_GAME_PARAM = 2;
     private static final int RAN_LOW_LIMIT = 1;
     private static final int RAN_UP_LIMIT = 30;

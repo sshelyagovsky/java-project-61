@@ -5,6 +5,9 @@ import java.util.Scanner;
 public class Engine {
     private static final int COUNT_ROUND = 3;
 
+    public static int getCountRound() {
+        return COUNT_ROUND;
+    }
     public static void startGame(String description, String[][] gameParam) {
         var isCorrect = true;
         Scanner scanner = new Scanner(System.in);
